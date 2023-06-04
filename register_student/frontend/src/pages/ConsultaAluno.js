@@ -2,6 +2,8 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import Field from '../components/Field';
 import FieldTurma from '../components/FieldTurma';
+import ModalAluno from '../components/ModalAluno';
+import ModalExcluirAluno from '../components/ModalExcluirAluno';
 
 function ConsultaAluno() {
     return (
@@ -29,9 +31,9 @@ function ConsultaAluno() {
                             <td>João da Silva</td>
                             <td>1</td>
                             <td>
-                                <button type="button" className="btn btn-primary"><i className="fas fa-search-plus"></i></button>
-                                <button type="button" className="btn btn-primary"><i className="fas fa-edit"></i></button>
-                                <button type="button" className="btn btn-danger"><i className="fas fa-trash"></i></button>
+                                <ModalAluno title="Visualizar Aluno" editable={false} icon="fas fa-eye" />
+                                <ModalAluno title="Editar Aluno" editable={true} icon="fas fa-edit" />
+                                <ModalExcluirAluno />
                             </td>
                         </tr>
                     </tbody>

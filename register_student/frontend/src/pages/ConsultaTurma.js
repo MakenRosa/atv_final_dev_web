@@ -1,6 +1,8 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import FieldTurma from '../components/FieldTurma';
+import ModalEditTurma from '../components/ModalEditTurma';
+import ModalVisualizarTurma from '../components/ModalVisualizarTurma';
 
 function ConsultaTurma() {
     return (
@@ -23,8 +25,8 @@ function ConsultaTurma() {
                             <th scope="row">1</th>
                             <td>01/01/2021</td>
                             <td>
-                                <button type="button" className="btn btn-primary"><i className="fas fa-search-plus"></i></button>
-                                <button type="button" className="btn btn-primary"><i className="fas fa-edit"></i></button>
+                                <ModalVisualizarTurma/>
+                                <ModalEditTurma />
                             </td>
                         </tr>
                     </tbody>

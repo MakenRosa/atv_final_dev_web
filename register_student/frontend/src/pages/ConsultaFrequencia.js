@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
-import Field from '../components/Field';
 import FieldTurma from '../components/FieldTurma';
+import ModalEditFrequencia from '../components/ModalEditFrequencia';
 
 function ConsultaFrequencia() {
     return (
@@ -26,7 +26,7 @@ function ConsultaFrequencia() {
                             <td>João da Silva</td>
                             <td>0</td>
                             <td>
-                                <button type="button" className="btn btn-primary"><i className="fas fa-edit"></i></button>
+                                <ModalEditFrequencia />
                             </td>
                         </tr>
                     </tbody>
