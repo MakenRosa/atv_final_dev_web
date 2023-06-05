@@ -27,4 +27,5 @@ class SchoolClassSerializer(serializers.ModelSerializer):
         fields = [
             'id',
             'subjects',
+            'date'
         ]
