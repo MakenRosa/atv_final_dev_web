@@ -23,7 +23,7 @@ function CadastroNota() {
                         <tr>
                             <th scope="row">123456</th>
                             <td>João da Silva</td>
-                            <td><input type="text" /></td>
+                            <td><Field id="nota" label="Nota" type="text" placeholder="Digite a nota" /></td>
                         </tr>
                     </tbody>
                 </table>

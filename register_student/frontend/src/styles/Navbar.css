@@ -21,11 +21,9 @@
 .navbar-brand {
     font-size: 1.4em !important;
     color: white !important;
+    cursor: default !important;
 }
 
-.navbar-brand:hover {
-    color: #b499ff !important;
-}
 
 
 .nav-link {

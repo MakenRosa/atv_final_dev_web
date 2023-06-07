@@ -11,7 +11,7 @@ function CadastroTurma() {
                 <div>
                     <form>
                         <div className="form-group">
-                            <Field id="numero" label="Número" type="text" placeholder="Digite o número da turma" />
+                            <Field id="nome-turma" label="Nome da Turma:" type="text" placeholder="Digite o nome da turma" />
                             <Field id="dataTurma" label="Data da Turma" type="date" placeholder="Digite a data da turma" />
                         </div>
                         <button type="submit" className="btn btn-primary">Salvar</button>
