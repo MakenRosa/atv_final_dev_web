@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Field = ({ id, label, type, placeholder, options, disabled }) => {
+const Field = ({ id, label, type, placeholder, options, disabled, trash }) => {
   if (type === 'select') {
     return (
       <div>
@@ -15,6 +15,7 @@ const Field = ({ id, label, type, placeholder, options, disabled }) => {
       <div>
         <label htmlFor={id}>{label}</label>
         <input type={type} className="form-control" id={id} placeholder={placeholder} disabled={disabled} />
+        {trash && <i className="fas fa-trash"></i>}
       </div>
     );
   }

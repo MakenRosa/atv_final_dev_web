@@ -6,6 +6,7 @@ import CadastroTurma from './pages/CadastroTurma';
 import CadastroNota from './pages/CadastroNota';
 import ConsultaAluno from './pages/ConsultaAluno';
 import ConsultaFrequencia from './pages/ConsultaFrequencia';
+import ConsultaNota from './pages/ConsultaNota';
 import ConsultaTurma from './pages/ConsultaTurma';
 
 import {
@@ -26,6 +27,7 @@ function App() {
           <Route path="/cadastro-nota" element={<CadastroNota />} />
           <Route path="/consulta-aluno" element={<ConsultaAluno />} />
           <Route path="/consulta-frequencia" element={<ConsultaFrequencia />} />
+          <Route path="/consulta-nota" element={<ConsultaNota />} />
           <Route path="/consulta-turma" element={<ConsultaTurma />} />
         </Routes>
       </Router>

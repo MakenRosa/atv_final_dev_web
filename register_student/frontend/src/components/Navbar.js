@@ -31,19 +31,11 @@ const Navbar = () => (
                             <ul className="dropdown-menu">
                                 <li><a href="/consulta-aluno" className="dropdown-item">Aluno</a></li>
                                 <li><a href="/consulta-frequencia" className="dropdown-item">Frequências</a></li>
-                                <li><a href="#" className="dropdown-item">Notas</a></li>
+                                <li><a href="/consulta-nota" className="dropdown-item">Notas</a></li>
                                 <li><a href="/consulta-turma" className="dropdown-item">Turmas</a></li>
                             </ul>
                         </li>
-                        <li className="nav-item dropdown">
-                            <a href="#" className="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"><i className="fa fa-chart-column nav-link-item"></i>Relatório</a>
-                            <ul className="dropdown-menu">
-                                <li><a href="#" className="dropdown-item">Aluno</a></li>
-                                <li><a href="#" className="dropdown-item">Frequências</a></li>
-                                <li><a href="#" className="dropdown-item">Notas</a></li>
-                                <li><a href="#" className="dropdown-item">Turmas</a></li>
-                            </ul>
-                        </li>
+                        
                     </ul>
                 </div>
             </nav>
