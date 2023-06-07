@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import Field from '../components/Field';
 import FieldTurma from '../components/FieldTurma';
+import '../styles/CadastroAluno.css';
 
 function CadastroAluno() {
     return (

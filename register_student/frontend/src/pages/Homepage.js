@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import "../styles/Homepage.css"
+import "../styles/styles.css"
 
 function Homepage() {
   return (
