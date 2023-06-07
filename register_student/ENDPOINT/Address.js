@@ -1,4 +1,4 @@
-async function setAdress({ street, district, city, complement, number, fu }) {
+async function setAddress({ street, district, city, complement, number, fu }) {
   const data = {
     street: street,
     district: district,
@@ -9,7 +9,7 @@ async function setAdress({ street, district, city, complement, number, fu }) {
   };
 
   try {
-    const response = await fetch(`${ip}/api/adress/`, {
+    const response = await fetch(`${ip}/api/address/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -21,9 +21,9 @@ async function setAdress({ street, district, city, complement, number, fu }) {
   }
 }
 
-async function getAdress() {
+async function getAddress() {
   try {
-    const response = await fetch(`${ip}/api/adress/`);
+    const response = await fetch(`${ip}/api/address/`);
     validateResponse(response);
     return response.json();
   } catch (error) {
@@ -31,7 +31,7 @@ async function getAdress() {
   }
 }
 
-async function updateAdress({
+async function updateAddress({
   id,
   street,
   district,
@@ -50,7 +50,7 @@ async function updateAdress({
   };
 
   try {
-    const response = await fetch(`${ip}/api/adress/${id}`, {
+    const response = await fetch(`${ip}/api/address/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -62,9 +62,9 @@ async function updateAdress({
   }
 }
 
-async function deleteAdress({ id }) {
+async function deleteAddress({ id }) {
   try {
-    const response = await fetch(`${ip}/api/adress/${id}`, {
+    const response = await fetch(`${ip}/api/address/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

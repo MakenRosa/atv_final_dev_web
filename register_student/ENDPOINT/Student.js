@@ -4,7 +4,7 @@ async function setStudent({
   registration,
   date_born,
   cell_phone,
-  adress,
+  address,
   school_classes,
 }) {
   const data = {
@@ -13,7 +13,7 @@ async function setStudent({
     registration: registration,
     date_born: date_born,
     cell_phone: cell_phone,
-    adress: adress,
+    address: address,
     school_classes: school_classes,
   };
 
@@ -47,7 +47,7 @@ async function updateStudent({
   registration,
   date_born,
   cell_phone,
-  adress,
+  address,
   school_classes,
 }) {
   const data = {
@@ -56,7 +56,7 @@ async function updateStudent({
     registration: registration,
     date_born: date_born,
     cell_phone: cell_phone,
-    adress: adress,
+    address: address,
     school_classes: school_classes,
   };
 

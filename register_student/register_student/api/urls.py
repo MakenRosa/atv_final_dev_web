@@ -5,7 +5,7 @@ from .views.school_subjects_views import SchoolSubjectsViewSet
 from .views.score_views import ScoreViewSet
 from .views.student_views import StudentViewSet
 from .views.attendance_views import AttendanceViewSet
-from .views.adress_views import AdressViewSet
+from .views.address_views import AddressViewSet
 
 
 router = routers.SimpleRouter()
@@ -25,11 +25,6 @@ router.register(
     basename='Score'
 )
 router.register(
-    r'score',
-    ScoreViewSet,
-    basename='Score'
-)
-router.register(
     r'student',
     StudentViewSet,
     basename='Student'
@@ -40,9 +35,9 @@ router.register(
     basename='Attendance'
 )
 router.register(
-    r'adress',
-    AdressViewSet,
-    basename='Adress'
+    r'address',
+    AddressViewSet,
+    basename='Address'
 )
 
 

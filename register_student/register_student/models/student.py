@@ -1,6 +1,6 @@
 from django.db import models
 from .school_class import SchoolClass
-from . adress import Adress
+from .address import Address
 
 
 class Student(models.Model):
@@ -14,7 +14,10 @@ class Student(models.Model):
     )
     registration = models.CharField(
         max_length=10,
-        unique=True
+        unique=True,
+        error_messages={
+            'unique': 'Já existe essa matrícula.'
+        }
     )
     date_born = models.DateField(
         null=False
@@ -27,7 +30,7 @@ class Student(models.Model):
         SchoolClass,
         related_name='students'
     )
-    adress = models.ForeignKey(
-        Adress,
+    address = models.ForeignKey(
+        Address,
         on_delete=models.CASCADE
     )

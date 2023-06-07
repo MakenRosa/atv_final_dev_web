@@ -1,6 +1,6 @@
 from .school_class import SchoolClass
 from .school_subjects import SchoolSubjects
-from .adress import Adress
+from .address import Address
 from .student import Student
 from .score import Score
 from .attendance import Attendance
@@ -8,7 +8,7 @@ from .attendance import Attendance
 __all__ = [
     SchoolClass,
     SchoolSubjects,
-    Adress,
+    Address,
     Student,
     Score,
     Attendance
