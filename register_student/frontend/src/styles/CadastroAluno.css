@@ -22,6 +22,24 @@
   grid-gap: 10px;
 }
 
+.cadastroAluno input,
+.cadastroAluno select.field-turma {
+    width: 70%;
+    font-size: 1.1rem;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+.cadastroAluno input[type="number"],
+.cadastroAluno input[type="text"],
+.cadastroAluno input[type="tel"] {
+    cursor: text;
+}
+
 .cadastroAluno > .content form > button {
   display: block;
   margin: 30px auto;

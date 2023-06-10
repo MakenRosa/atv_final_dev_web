@@ -63,3 +63,12 @@
     color: white !important;
     transition: 0.1s ease-in-out !important;
 }
+
+.title {
+    font-size: 4rem;
+    font-weight: 700;
+}
+
+label {
+    font-weight: 700;
+}

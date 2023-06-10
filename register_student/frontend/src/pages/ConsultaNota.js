@@ -9,7 +9,7 @@ function ConsultaNota() {
         <div className="consultaNota">
             <Navbar />
             <div className="content">
-                <h1>Consulta de Notas</h1>
+                <h1 className="title">Consulta de Notas</h1>
                 <FieldTurma/>
                 <button type="submit" className="btn btn-primary"><i className="fas fa-search"></i> Pesquisar</button>
 

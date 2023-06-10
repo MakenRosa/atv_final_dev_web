@@ -1,15 +1,16 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import FieldTurma from '../components/FieldTurma';
+import "../styles/CadastroFrequencia.css"
 
 function CadastroFrequencia() {
     return (
         <div className="cadastroFrequencia">
             <Navbar />
             <div className="content">
-                <h1>Cadastro de Frequência</h1>
-                <FieldTurma/>
-                <table className="table table-striped">
+                <h1 className="title">Cadastro de Frequência</h1>
+                <FieldTurma className="field-turma" />
+                <table className="table">
                     <thead>
                         <tr>
                             <th scope="col">Matrícula</th>
@@ -21,7 +22,8 @@ function CadastroFrequencia() {
                         <tr>
                             <th scope="row">123456</th>
                             <td>João da Silva</td>
-                            <td><input type="checkbox" /></td>
+                            <td><input type="checkbox" id="presencaJoao" />
+                            </td>
                         </tr>
                     </tbody>
                 </table>

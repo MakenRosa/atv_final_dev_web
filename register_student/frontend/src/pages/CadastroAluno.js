@@ -9,20 +9,20 @@ function CadastroAluno() {
         <div className="cadastroAluno">
         <Navbar />
         <div className="content">
-            <h1>Cadastro de Aluno</h1>
+            <h1 className="title">Cadastro de Aluno</h1>
             <div>
                 <form>
                     <div className="form-group">
                         <Field id="nome" label="Nome" type="text" placeholder="Digite o nome do aluno" />
                         <Field id="dataNascimento" label="Data de Nascimento" type="date" />
-                        <Field id="telefone" label="Telefone" type="text" placeholder="Digite o telefone do aluno" />
-                        <Field id="celular" label="Celular" type="text" placeholder="Digite o celular do aluno" />
-                        <Field id="matricula" label="Matrícula" type="text" placeholder="Digite a matrícula do aluno" />
-                        <FieldTurma/>
+                        <Field id="telefone" label="Telefone" type="tel" placeholder="Digite o telefone do aluno" />
+                        <Field id="celular" label="Celular" type="tel" placeholder="Digite o celular do aluno" />
+                        <Field id="matricula" label="Matrícula" type="number" placeholder="Digite a matrícula do aluno" />
+                        <FieldTurma className="field-turma"/>
                     </div>
                     <h2>Endereço</h2>
                     <div className="form-group">
-                        <Field id="cep" label="CEP" type="text" placeholder="Digite o CEP do aluno" />
+                        <Field id="cep" label="CEP" type="number" placeholder="Digite o CEP do aluno" />
                         <Field id="logradouro" label="Logradouro" type="text" placeholder="Digite o logradouro do aluno" />
                         <Field id="complemento" label="Complemento" type="text" placeholder="Digite o complemento do aluno" />
                         <Field id="bairro" label="Bairro" type="text" placeholder="Digite o bairro do aluno" />
