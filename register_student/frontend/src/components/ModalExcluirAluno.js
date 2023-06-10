@@ -9,8 +9,8 @@ const ModalExcluirAluno = () => {
             <p><strong>Nome:</strong> João da Silva</p>
             <p><strong>Matrícula:</strong> 123456</p>
             <ModalFooter>
-                <button type="button" className="btn btn-secondary" onClick={() => window.location.reload()}>Não</button>
                 <button type="button" className="btn btn-danger">Sim</button>
+                <button type="button" className="btn btn-info" onClick={() => window.location.reload()}>Não</button>
             </ModalFooter>
         </ModalComponent>
     )

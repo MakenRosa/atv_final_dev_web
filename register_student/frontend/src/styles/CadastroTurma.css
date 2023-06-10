@@ -1,43 +1,43 @@
 .cadastroTurma {
-    font-family: Arial, sans-serif;
-    background-color: #ffffff;
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
 }
 
 .cadastroTurma .content {
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
 }
 
 .cadastroTurma .title {
-    margin-bottom: 150px;
+  margin-bottom: 80px;
 }
 
 .cadastroTurma .form-group {
-    text-align: center;
-    width: 100%;
+  text-align: center;
+  width: 100%;
 }
 
 .cadastroTurma label {
-    width: 30%;
-    font-size: 1.3rem;
+  width: 30%;
+  font-size: 1.3rem;
 }
 
 .cadastroTurma input {
-    width: 70%;
-    font-size: 1.1rem;
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    outline: none;
-    cursor: pointer;
-    margin-bottom: 30px;
+  width: 70%;
+  font-size: 1.1rem;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  outline: none;
+  cursor: pointer;
+  margin-bottom: 30px;
 }
 
 .cadastroTurma .btn {
-    text-align: center;
-    margin: 0 auto;
-    display: block;
+  text-align: center;
+  margin: 50px auto;
+  display: block;
 }

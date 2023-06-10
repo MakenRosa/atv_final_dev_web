@@ -4,10 +4,10 @@ import ModalComponent from './ModalComponent';
 import FieldTurma from './FieldTurma';
 import { ModalFooter } from 'react-bootstrap';
 
-const ModalAluno = ({ title, editable, icon }) => {
+const ModalAluno = ({ title, editable, icon, buttonVariant }) => {
 
     return (
-        <ModalComponent title={title} buttonLabel={icon ? <i className={icon}></i> : <i className="fas fa-edit"></i>} buttonVariant="primary">
+        <ModalComponent title={title} buttonLabel={icon ? <i className={icon}></i> : <i className="fas fa-edit"></i>} buttonVariant={buttonVariant}>
             <div>
                 <form>
                     <div className="form-group">
@@ -31,7 +31,9 @@ const ModalAluno = ({ title, editable, icon }) => {
                             'RS', 'RO', 'RR', 'SC', 'SP', 'SE', 'TO']} disabled={!editable} />
                     </div>
                     <ModalFooter>
-                       <button type="submit" className="btn btn-primary">{editable ? 'Salvar' : 'Ok'}</button>
+                    {editable ?                        
+                    <button type="submit" className="btn btn-primary">Salvar</button>
+                     : <button type="button" className="btn btn-primary" data-dismiss="modal">Ok</button>}
                     </ModalFooter>
                 </form>
             </div>

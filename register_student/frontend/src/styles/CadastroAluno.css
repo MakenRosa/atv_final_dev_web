@@ -1,13 +1,4 @@
-.cadastroAluno {
-  position: relative;
-  height: 100vh;
-}
-
 .cadastroAluno > .content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
   gap: 50px;
@@ -23,26 +14,26 @@
 }
 
 .cadastroAluno input,
-.cadastroAluno select.field-turma {
-    width: 70%;
-    font-size: 1.1rem;
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    outline: none;
-    cursor: pointer;
-    margin-bottom: 30px;
+.cadastroAluno select {
+  width: 70%;
+  font-size: 1.1rem;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  outline: none;
+  cursor: pointer;
+  margin-bottom: 30px;
 }
 
 .cadastroAluno input[type="number"],
 .cadastroAluno input[type="text"],
 .cadastroAluno input[type="tel"] {
-    cursor: text;
+  cursor: text;
 }
 
 .cadastroAluno > .content form > button {
   display: block;
-  margin: 30px auto;
+  margin: 50px auto;
 }
 
 .cadastroAluno > .content .form-group div {

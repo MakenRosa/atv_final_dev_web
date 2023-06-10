@@ -17,7 +17,7 @@ input {
   width: 70%;
 }
 
-.btn-primary {
+.btn-primary, .btn-secondary {
   width: 300px;
   padding: 10px;
   border-radius: 5px;

@@ -18,7 +18,7 @@ const ModalEditNota = () => {
                         <Field id="nota3" label="Nota 3" type="text" placeholder="Digite a nota 3" trash />
                         <Field id="nota4" label="Nota 4" type="text" placeholder="Digite a nota 4" trash />
                     </div>
-                    <ModalFooter><button type="submit" className="btn btn-primary">Salvar</button></ModalFooter>
+                    <ModalFooter><button type="submit" className="btn btn-warning">Salvar</button></ModalFooter>
                 </form>
             </div>
         </ModalComponent>

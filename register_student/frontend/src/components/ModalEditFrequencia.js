@@ -14,8 +14,8 @@ const ModalEditFrequencia = () => {
             disabled={true} />
             <Field id="faltas" label="Faltas" type="number"/>
             <ModalFooter>
-                <button type="button" className="btn btn-secondary" onClick={() => window.location.reload()}>Cancelar</button>
                 <button type="button" className="btn btn-warning">Salvar</button>
+                <button type="button" className="btn btn-danger" onClick={() => window.location.reload()}>Cancelar</button>
             </ModalFooter>
         </ModalComponent>
     );

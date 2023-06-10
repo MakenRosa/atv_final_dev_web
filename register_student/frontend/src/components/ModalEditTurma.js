@@ -12,7 +12,7 @@ const ModalTurma = () => {
                         <Field id="nomeTurma" label="Nome da Turma" type="text" placeholder="Digite o nome da turma" />
                         <Field id="dataTurma" label="Data da Turma" type="date" placeholder="Digite a data da turma" />
                     </div>
-                    <ModalFooter><button type="submit" className="btn btn-primary">Salvar</button></ModalFooter>
+                    <ModalFooter><button type="submit" className="btn btn-warning">Salvar</button></ModalFooter>
                 </form>
             </div>
         </ModalComponent>
