@@ -17,9 +17,11 @@ git clone https://github.com/MakenRosa/atv_final_dev_web.git
 
 
 Acesse o diretório do projeto:
+
 cd atv_final_dev_web
 
 Crie um ambiente virtual para isolar as dependências do projeto:
+
 python -m venv venv
 
 
@@ -32,11 +34,14 @@ No macOS/Linux:
 source venv/bin/activate
 
 Instale as dependências do Django usando o pip:
+
 pip install -r requirements.txt
+
 Isso instalará todas as dependências listadas no arquivo requirements.txt
 
 
 Uso
+
 Para executar o projeto, siga estes passos:
 
 Certifique-se de estar no diretório raiz do projeto e com o ambiente virtual ativado.
