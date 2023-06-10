@@ -31,15 +31,20 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # Libs
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'register_student',
     'rest_framework',
-    'django_filters'
+    'django_filters',
+
+    # Apps
+    'groups',
+    'students',
+    'student_group',
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,54 @@
+Para criar uma turma, basta chamar o método setGroup passando o nome e a data como parâmetros.
+
+Para criar um estudante, basta chamar o método setStudent passando todos os atributos, 
+incluindo o ID da turma.
+
+Para registrar uma nota e frequência, é necessário usar o método getGroup passando 
+o ID da turma para recuperar o ID do group_student, que é a tabela de relacionamento 
+entre o estudante e a turma. Em seguida, utilize o ID do group_student para chamar os 
+métodos setScore ou setAttendance e definir a nota e a frequência, respectivamente.
+
+Exemplo a baixo com o json do getGroup passando id para recuperar o group_student
+
+"id": 1,
+"name": "devweb2",
+"date": "2023-05-04",
+"students": [
+    {
+        "id": 1,   <------ Esse id é o que vai ser usado para criar a frequencia e a nota
+        "group_student": {
+            "id": 1,
+            "full_name": "totti"
+        },
+        "scores": [],
+        "attendances": [
+            {
+                "id": 1,
+                "attendance": 1,
+                "student_group": 1    <----- Ele vai ser usado aqui na frequencia
+            }
+        ]
+    },
+]
+
+"id": 1,
+    "name": "devweb2",
+    "date": "2023-05-04",
+    "group_student": [
+        {
+            "id": 1,   <------ Esse id é o que vai ser usado para criar a nota e frequencia
+            "students": {
+                "id": 1,
+                "full_name": "daniel",
+            },
+            "scores": [
+                {
+                    "id": 1,
+                    "score": 10,
+                    "date": "2023-06-09",
+                    "student_group": 1      <----- Ele vai ser usado aqui na nota
+                }
+            ],
+            "attendances": []
+        },
+]
