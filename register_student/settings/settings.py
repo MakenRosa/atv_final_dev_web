@@ -25,7 +25,10 @@ SECRET_KEY = 'django-insecure-8^z@h)5pfjw!%&u%4#8t+h4y%6u^%6$r+0!xf8o2u_b_3@)5hb
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    # Not recommended for production.
+    '*',
+]
 
 
 # Application definition
@@ -38,13 +41,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Rest_framework
     'rest_framework',
     'django_filters',
 
+    # CorsHeaders
+    'corsheaders',
+
     # Apps
-    'groups',
-    'students',
-    'student_group',
+    'app.groups',
+    'app.students',
+    'app.student_group',
 ]
 
 MIDDLEWARE = [
@@ -55,6 +63,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'settings.urls'
@@ -129,3 +138,11 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# CorsHeaders
+CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:8000',
+]
