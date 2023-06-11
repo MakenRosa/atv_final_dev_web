@@ -1,0 +1,10 @@
+"""
+StudentGroup Constants
+"""
+###
+# Libraries
+###
+
+###
+# Choices
+###
