@@ -16,11 +16,18 @@ const ModalEditTurma = ({ show, group, handleOpen, handleClose }) => {
       setName(group.name);
       setDate(group.date);
       setId(group.id);
+      setAlertType(null);
+      setAlertMessage(null);
     }
   }, [group]);
 
   const handleOnSubmit = async (event) => {
     event.preventDefault();
+    if (!name || !date) {
+      setAlertType("danger");
+      setAlertMessage("Por favor, preencha todos os campos.");
+      return;
+    }
     try {
       const response = await updateGroup({ id, name, date });
       if (response.ok) {

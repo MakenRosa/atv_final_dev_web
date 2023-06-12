@@ -45,7 +45,7 @@ const ModalVisualizarTurma = ({ show, group, handleClose }) => {
             </tr>
           </thead>
           <tbody>
-            {groupDetails.group_student ? (
+            {groupDetails.group_student.length > 0 ? (
               groupDetails.group_student.map((student, index) => (
                 <tr key={index}>
                   <th scope="row">{student.student.id}</th>

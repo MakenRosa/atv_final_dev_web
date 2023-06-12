@@ -6,7 +6,7 @@ const Field = ({ id, label, type, placeholder, options, disabled, trash, classNa
       <div>
         <label className={className} htmlFor={id}>{label}</label>
         <select id={id} className={"form-control" + (className && className)} disabled={disabled} value={value} onChange={onChange}>
-          {options.map((option, index) => <option key={index} value={option}>{option}</option>)}
+          {options.map((option, index) => <option key={index} value={option.value}>{option.label}</option>)}
         </select>
       </div>
     );

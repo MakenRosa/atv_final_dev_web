@@ -14,6 +14,12 @@ function CadastroTurma() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!name || !date) {
+      setModalTitle("Erro");
+      setModalMessage("Por favor, preencha todos os campos.");
+      setModalShow(true);
+      return;
+    }
     try {
       const response = await setGroup({ name, date });
       if (response.ok) {
@@ -64,7 +70,12 @@ function CadastroTurma() {
           </form>
         </div>
       </div>
-      <ModalMessage show={modalShow} onClose={() => setModalShow(false)} title={modalTitle} message={modalMessage} />
+      <ModalMessage
+        show={modalShow}
+        onClose={() => setModalShow(false)}
+        title={modalTitle}
+        message={modalMessage}
+      />
     </div>
   );
 }

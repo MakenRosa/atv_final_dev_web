@@ -1,5 +1,6 @@
+import { API_URL } from "./settings.js";
 // Create Aluno
-async function setGroup({
+async function createStudent(
   full_name,
   contact_number,
   phone_number,
@@ -10,8 +11,8 @@ async function setGroup({
   neighborhood,
   city,
   state,
-  groups,
-}) {
+  groups
+) {
   const data = {
     full_name: full_name,
     contact_number: contact_number,
@@ -23,25 +24,42 @@ async function setGroup({
     neighborhood: neighborhood,
     city: city,
     state: state,
-    groups: groups,
+    groups: [groups],
   };
   try {
-    const response = await fetch(`${ip}/api/v1/students/`, {
+    const response = await fetch(`${API_URL}/students/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
     });
+    return response;
   } catch (error) {
     console.error("Error:", error);
   }
 }
 
-// Get Alunos
-async function getStudents() {
+export { createStudent, getStudents, updateStudent, deleteStudent, getStudent };
+
+async function getStudent(id) {
   try {
-    const response = await fetch(`${ip}/api/v1/students/`);
+    const response = await fetch(`${API_URL}/students/${id}/`);
+    return response.json();
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// Get Alunos
+async function getStudents(full_name = "", groups = "") {
+  try {
+    const params = new URLSearchParams({
+      full_name,
+      ...(groups && { groups }),
+    });
+
+    const response = await fetch(`${API_URL}/students/?${params}`);
     return response.json();
   } catch (error) {
     console.log(error);
@@ -49,7 +67,8 @@ async function getStudents() {
 }
 
 // Update Aluno
-async function updateStudent({
+async function updateStudent(
+  id,
   full_name,
   contact_number,
   phone_number,
@@ -60,8 +79,8 @@ async function updateStudent({
   neighborhood,
   city,
   state,
-  groups,
-}) {
+  groups
+) {
   const data = {
     full_name: full_name,
     contact_number: contact_number,
@@ -76,13 +95,14 @@ async function updateStudent({
     groups: groups,
   };
   try {
-    const response = await fetch(`${ip}/api/v1/students/${id}/`, {
+    const response = await fetch(`${API_URL}/students/${id}/`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
     });
+    return response;
   } catch (error) {
     console.log(error);
   }
@@ -91,12 +111,13 @@ async function updateStudent({
 // Delete Aluno
 async function deleteStudent(id) {
   try {
-    const response = await fetch(`${ip}/api/v1/students/${id}/`, {
+    const response = await fetch(`${API_URL}/students/${id}/`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
       },
     });
+    return response;
   } catch (error) {
     console.error("Error:", error);
   }
