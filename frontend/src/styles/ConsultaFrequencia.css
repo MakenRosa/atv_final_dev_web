@@ -1,8 +1,8 @@
-.consultaFrequencia .title {
+.cadastroFrequencia .title {
     margin-bottom: 80px;
   }
   
-  .consultaFrequencia .content {
+  .cadastroFrequencia .content {
     max-width: 800px;
     margin: 0 auto;
     background-color: #fff;
@@ -10,14 +10,14 @@
     padding: 20px;
   }
   
-  .consultaFrequencia .line {
+  .cadastroFrequencia .line {
     display: flex;
     flex-direction: row;
     width: 100%;
     justify-content: space-around;
   }
   
-  .consultaFrequencia select {
+  .cadastroFrequencia select {
     width: 300px;
     font-size: 1.1rem;
     padding: 5px;
@@ -28,29 +28,29 @@
     height: 100%;
   }
   
-  .consultaFrequencia label {
+  .cadastroFrequencia label {
     width: 100px;
     font-size: 1.3rem;
     height: 100%;
   }
   
-  .consultaFrequencia .table {
+  .cadastroFrequencia .table {
     width: 100%;
     margin-top: 30px;
     margin-bottom: 20px;
   }
   
-  .consultaFrequencia .table th,
-  .consultaFrequencia .table td {
+  .cadastroFrequencia .table th,
+  .cadastroFrequencia .table td {
     padding: 15px;
     text-align: center;
   }
   
-  .consultaFrequencia .table th {
+  .cadastroFrequencia .table th {
     background-color: #ffffff;
   }
   
-  .consultaFrequencia .table td button {
+  .cadastroFrequencia .table td button {
     margin-right: 20px;
   }
   

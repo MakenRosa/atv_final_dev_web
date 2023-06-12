@@ -1,9 +1,9 @@
-.cadastroFrequencia {
+.consultaFrequencia {
     font-family: Arial, sans-serif;
     background-color: #ffffff;
 }
 
-.cadastroFrequencia .content {
+.consultaFrequencia .content {
     max-width: 800px;
     margin: 0 auto;
     background-color: #fff;
@@ -11,21 +11,21 @@
     padding: 20px;
   }
 
-.cadastroFrequencia .title {
+.consultaFrequencia .title {
     margin-bottom: 30px;
 }
 
-.cadastroFrequencia .field-turma {
+.consultaFrequencia .field-turma {
     text-align: center;
     width: 100%;
 }
 
-.cadastroFrequencia label.field-turma {
+.consultaFrequencia label.field-turma {
     width: 30%;
     font-size: 1.3rem;
 }
 
-.cadastroFrequencia select.field-turma {
+.consultaFrequencia select {
     width: 70%;
     font-size: 1.1rem;
     padding: 5px;
@@ -36,23 +36,23 @@
     text-align: left;
 }
 
-.cadastroFrequencia .table {
+.consultaFrequencia .table {
     width: 100%;
     margin-top: 30px;
     margin-bottom: 20px;
 }
 
-.cadastroFrequencia .table th,
-.cadastroFrequencia .table td {
+.consultaFrequencia .table th,
+.consultaFrequencia .table td {
     padding: 15px;
     text-align: center
 }
 
-.cadastroFrequencia .table th {
+.consultaFrequencia .table th {
     background-color: #ffffff;
 }
 
-.cadastroFrequencia button {
+.consultaFrequencia button {
     text-align: center;
     margin: 50px auto;
     display: block;

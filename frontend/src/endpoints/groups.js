@@ -1,17 +1,19 @@
-// Create Group
+import { API_URL } from "./settings.js";
+
 async function setGroup({ name, date }) {
   const data = {
     name: name,
     date: date,
   };
   try {
-    const response = await fetch(`${ip}/api/v1/group/`, {
+    const response = await fetch(`${API_URL}/group/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
     });
+    return response;
   } catch (error) {
     console.error("Error:", error);
   }
@@ -20,7 +22,7 @@ async function setGroup({ name, date }) {
 // Get todas as turmas
 async function getGroupAll() {
   try {
-    const response = await fetch(`${ip}/api/v1/group/`);
+    const response = await fetch(`${API_URL}/group/`);
     return response.json();
   } catch (error) {
     console.log(error);
@@ -30,7 +32,7 @@ async function getGroupAll() {
 // Get turmas e tudo que tem dentro Alunos, Frequencia, Notas
 async function getGroup(id) {
   try {
-    const response = await fetch(`${ip}/api/v1/group/${id}`);
+    const response = await fetch(`${API_URL}/group/${id}/`);
     return response.json();
   } catch (error) {
     console.log(error);
@@ -44,14 +46,17 @@ async function updateGroup({ id, name, date }) {
     date: date,
   };
   try {
-    const response = await fetch(`${ip}/api/v1/group/${id}/`, {
+    const response = await fetch(`${API_URL}/group/${id}/`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
     });
+    return response;
   } catch (error) {
     console.log(error);
   }
 }
+
+export { setGroup, getGroupAll, getGroup, updateGroup };

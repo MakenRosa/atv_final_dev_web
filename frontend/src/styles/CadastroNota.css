@@ -28,7 +28,7 @@
 }
 
 .cadastroNota input,
-.cadastroNota select.field-turma {
+.cadastroNota select {
     width: 70%;
     font-size: 1.1rem;
     padding: 5px;
