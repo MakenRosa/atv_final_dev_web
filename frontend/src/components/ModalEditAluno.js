@@ -8,19 +8,19 @@ import { getStudent } from "../endpoints/students.js";
 
 const ModalEditarAluno = ({ show, student, handleOpen, handleClose }) => {
   const [id, setId] = useState(null);
-  const [fullName, setFullName] = useState(null);
-  const [dateOfBirth, setDateOfBirth] = useState(null);
-  const [phoneNumber, setPhoneNumber] = useState(null);
-  const [contactNumber, setContactNumber] = useState(null);
-  const [street, setStreet] = useState(null);
-  const [number, setNumber] = useState(null);
-  const [extra, setExtra] = useState(null);
-  const [neighborhood, setNeighborhood] = useState(null);
-  const [city, setCity] = useState(null);
-  const [state, setState] = useState(null);
-  const [groups, setGroups] = useState(null);
-  const [alertType, setAlertType] = useState(null);
-  const [alertMessage, setAlertMessage] = useState(null);
+  const [fullName, setFullName] = useState("");
+  const [dateOfBirth, setDateOfBirth] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [contactNumber, setContactNumber] = useState("");
+  const [street, setStreet] = useState("");
+  const [number, setNumber] = useState("");
+  const [extra, setExtra] = useState("");
+  const [neighborhood, setNeighborhood] = useState("");
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
+  const [groups, setGroups] = useState("");
+  const [alertType, setAlertType] = useState("");
+  const [alertMessage, setAlertMessage] = useState("");
   const [options, setOptions] = useState([{ value: "", label: "" }]);
 
   useEffect(() => {
@@ -53,7 +53,7 @@ const ModalEditarAluno = ({ show, student, handleOpen, handleClose }) => {
         setNeighborhood(response.neighborhood);
         setCity(response.city);
         setState(response.state);
-        setGroups(response.groups);
+        setGroups(response.groups[0]);
         setAlertType(null);
         setAlertMessage(null);
       };

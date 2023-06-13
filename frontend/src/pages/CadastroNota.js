@@ -31,34 +31,42 @@ function CadastroNota() {
     fetchGroups();
   }, []);
 
+  const validateInput = (inputValue) => {
+    if (
+      /^(\d*[\.,])?\d+$/.test(inputValue) &&
+      parseFloat(inputValue) >= 0 &&
+      parseFloat(inputValue) <= 10
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
   const handleSubmit = async (event) => {
+    const studentsRequest = [];
     if (!date) {
       setModalTitle("Erro");
       setModalMessage("Por favor, preencha a data.");
       setModalShow(true);
       return;
     }
+    const isValid = students.every((student) => validateInput(student.score));
 
-    const studentsRequest = [];
-    students.map((student) => {
-      if (!student.score) {
-        setModalTitle("Erro");
-        setModalMessage("Por favor, preencha todas as notas.");
-        setModalShow(true);
-        return;
-      } else {
-        studentsRequest.push({
-          student_group: student.id,
-          score: student.score,
-        });
-      }
-    });
-    if (studentsRequest.length === 0) {
+    if (!isValid) {
       setModalTitle("Erro");
-      setModalMessage("Por favor selecione uma turma.");
+      setModalMessage("Por favor, preencha todas as notas corretamente.");
       setModalShow(true);
       return;
+    } else {
+      students.map((student) => {
+        studentsRequest.push({
+          student_group: student.id,
+          score: student.score.replace(",", "."),
+        });
+      });
     }
+
     try {
       await Promise.all(
         studentsRequest.map((student) =>
@@ -124,10 +132,9 @@ function CadastroNota() {
           </select>
         </div>
         <Field
-          id="dataTurma"
-          label="Data da Turma"
+          label="Data da Nota"
           type="date"
-          placeholder="Digite a data da turma"
+          placeholder="Digite a data da nota"
           value={date}
           onChange={(e) => setDate(e.target.value)}
         />
@@ -155,7 +162,7 @@ function CadastroNota() {
                   <td>
                     <input
                       type="text"
-                      id={`presenca${student.id}`}
+                      id={`nota${student.id}`}
                       onChange={(e) => {
                         const newStudents = [...students];
                         newStudents[index].score = e.target.value;

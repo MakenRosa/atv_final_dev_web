@@ -1,5 +1,5 @@
 import { API_URL } from "./settings.js";
-// Create Aluno
+
 async function createStudent(
   full_name,
   contact_number,
@@ -26,45 +26,31 @@ async function createStudent(
     state: state,
     groups: [groups],
   };
-  try {
-    const response = await fetch(`${API_URL}/students/`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-    return response;
-  } catch (error) {
-    console.error("Error:", error);
-  }
+  const response = await fetch(`${API_URL}/students/`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+  return response;
 }
 
 async function getStudent(id) {
-  try {
-    const response = await fetch(`${API_URL}/students/${id}/`);
-    return response.json();
-  } catch (error) {
-    console.log(error);
-  }
+  const response = await fetch(`${API_URL}/students/${id}/`);
+  return response.json();
 }
 
-// Get Alunos
 async function getStudents(name = "", groups = "") {
-  try {
-    const params = new URLSearchParams({
-      name,
-      ...(groups && { groups }),
-    });
+  const params = new URLSearchParams({
+    name,
+    ...(groups && { groups }),
+  });
 
-    const response = await fetch(`${API_URL}/students/?${params}`);
-    return response.json();
-  } catch (error) {
-    console.log(error);
-  }
+  const response = await fetch(`${API_URL}/students/?${params}`);
+  return response.json();
 }
 
-// Update Aluno
 async function updateStudent(
   id,
   full_name,
@@ -92,18 +78,14 @@ async function updateStudent(
     state: state,
     groups: [groups],
   };
-  try {
-    const response = await fetch(`${API_URL}/students/${id}/`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-    return response;
-  } catch (error) {
-    console.log(error);
-  }
+  const response = await fetch(`${API_URL}/students/${id}/`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+  return response;
 }
 
 export { createStudent, getStudents, updateStudent, getStudent };

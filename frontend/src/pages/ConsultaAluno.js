@@ -116,8 +116,8 @@ function ConsultaAluno() {
           </thead>
           <tbody>
             {students.length > 0 ? (
-              students.map((student) => (
-                <tr key={student.registration}>
+              students.map((student, index) => (
+                <tr key={index}>
                   <th scope="row">{student.id}</th>
                   <td>{student.full_name}</td>
                   <td>

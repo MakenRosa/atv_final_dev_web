@@ -87,8 +87,8 @@ const ModalEditFrequencia = ({
         )}
         <form onSubmit={handleOnSubmit}>
           <Field
-            id="nome"
-            label="Nome"
+            id="aluno"
+            label="Aluno"
             type="text"
             value={nome}
             disabled={true}
@@ -118,7 +118,11 @@ const ModalEditFrequencia = ({
               {attendances.length > 0 ? (
                 attendances.map((a, index) => (
                   <tr key={index}>
-                    <td>{a.date}</td>
+                    <td>
+                      {new Date(`${a.date}T12:00:00`).toLocaleDateString(
+                        "pt-BR"
+                      )}
+                    </td>
                     <td>
                       <select
                         value={a.attendance}
@@ -134,7 +138,7 @@ const ModalEditFrequencia = ({
                 ))
               ) : (
                 <tr>
-                  <td colSpan="4">Nenhum aluno encontrado</td>
+                  <td colSpan="4">Nenhuma frequência encontrada para o aluno selecionado.</td>
                 </tr>
               )}
             </tbody>

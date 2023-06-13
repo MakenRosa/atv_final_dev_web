@@ -69,6 +69,7 @@ function CadastroFrequencia() {
       setModalMessage("A frequência dos alunos foi salva com sucesso.");
       setModalShow(true);
       setStudents([]);
+      setDate("");
       setGroups("");
     } catch (error) {
       console.log(error);
@@ -123,10 +124,9 @@ function CadastroFrequencia() {
           </select>
         </div>
         <Field
-          id="dataTurma"
-          label="Data da Turma"
+          label="Data da Frequência"
           type="date"
-          placeholder="Digite a data da turma"
+          placeholder="Digite a data da frequência"
           value={date}
           onChange={(e) => setDate(e.target.value)}
         />

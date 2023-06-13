@@ -84,6 +84,18 @@
   margin-left: 20px;
 }
 
+.modal-body table input {
+  width: 50%;
+  font-size: 1.1rem;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  margin: 0;
+}
+
 .modal-body table {
   width: 100%;
   margin-top: 30px;
