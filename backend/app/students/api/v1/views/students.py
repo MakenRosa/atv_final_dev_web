@@ -25,7 +25,7 @@ class StudentsViewSet(
     def get_serializer_class(self):
         if self.action == 'retrieve':
             return RetrieveStudentSerializer
-        elif self.action in ['update', 'create']:
+        elif self.action in ['update', 'create', 'partial_update']:
             return CreateStudentSerializer
         else:
             return DefaultStudentSerializer
