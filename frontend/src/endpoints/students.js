@@ -90,7 +90,7 @@ async function updateStudent(
     neighborhood: neighborhood,
     city: city,
     state: state,
-    groups: groups,
+    groups: [groups],
   };
   try {
     const response = await fetch(`${API_URL}/students/${id}/`, {
