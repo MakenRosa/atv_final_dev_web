@@ -1,11 +1,12 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import "../styles/ConsultaFrequencia.css";
+import "../styles/CadastroFrequencia.css";
 import { useState, useEffect } from "react";
 import { getGroupAll } from "../endpoints/groups.js";
 import { getGroup } from "../endpoints/groups.js";
 import { setAttendance } from "../endpoints/attendance.js";
 import ModalMessage from "../components/ModalMessage";
+import Field from "../components/Field";
 
 function CadastroFrequencia() {
   const [options, setOptions] = useState([{ value: "", label: "" }]);
@@ -14,6 +15,7 @@ function CadastroFrequencia() {
   const [modalShow, setModalShow] = useState(false);
   const [modalTitle, setModalTitle] = useState("");
   const [modalMessage, setModalMessage] = useState("");
+  const [date, setDate] = useState("");
 
   useEffect(() => {
     const fetchGroups = async () => {
@@ -30,6 +32,13 @@ function CadastroFrequencia() {
   }, []);
 
   const handleSubmit = async (event) => {
+    if (!date) {
+      setModalTitle("Erro");
+      setModalMessage("Por favor, preencha a data.");
+      setModalShow(true);
+      return;
+    }
+
     const studentsRequest = [];
     console.log(students);
     students.map((student) => {
@@ -38,12 +47,17 @@ function CadastroFrequencia() {
           student_group: student.id,
           attendance: 1,
         });
+      } else {
+        studentsRequest.push({
+          student_group: student.id,
+          attendance: 0,
+        });
       }
     });
     try {
       await Promise.all(
         studentsRequest.map((student) =>
-          setAttendance(student.attendance, student.student_group)
+          setAttendance(student.attendance, student.student_group, date)
         )
       );
       setModalTitle("Frequência Salva");
@@ -84,33 +98,39 @@ function CadastroFrequencia() {
       <Navbar />
       <div className="content">
         <h1 className="title">Cadastro de Frequência</h1>
-        <div className="line">
-          <div>
-            <label className="FieldTurma" htmlFor="turma">
-              Turma
-            </label>
-            <select
-              id="turma"
-              className="form-controlfield-turma"
-              value={groups}
-              onChange={(event) => setGroups(event.target.value)}
-            >
-              <option value="">Selecione uma turma</option>
-              {options.map((option, index) => (
-                <option key={index} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
-            </select>
-          </div>
-          <button
-            type="submit"
-            className="btn btn-primary"
-            onClick={searchStudents}
+        <div>
+          <label className="FieldTurma" htmlFor="turma">
+            Turma
+          </label>
+          <select
+            id="turma"
+            className="form-controlfield-turma"
+            value={groups}
+            onChange={(event) => setGroups(event.target.value)}
           >
-            <i className="fas fa-search"></i> Pesquisar
-          </button>
+            <option value="">Selecione uma turma</option>
+            {options.map((option, index) => (
+              <option key={index} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
         </div>
+        <Field
+          id="dataTurma"
+          label="Data da Turma"
+          type="date"
+          placeholder="Digite a data da turma"
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
+        />
+        <button
+          type="submit"
+          className="btn btn-primary"
+          onClick={searchStudents}
+        >
+          <i className="fas fa-search"></i> Pesquisar
+        </button>
         <table className="table">
           <thead>
             <tr>

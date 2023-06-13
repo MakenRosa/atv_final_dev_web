@@ -1,9 +1,10 @@
 import { API_URL } from "./settings.js";
 
-async function setAttendance(attendance, studentGroup) {
+async function setAttendance(attendance, studentGroup, date) {
   const data = {
     attendance: attendance,
     student_group: studentGroup,
+    date: date,
   };
   try {
     const response = await fetch(`${API_URL}/attendance/`, {
@@ -20,7 +21,7 @@ async function setAttendance(attendance, studentGroup) {
 }
 
 // Update Frequencia
-async function updateAttendance({ id, attendance, date }) {
+async function updateAttendance(id, attendance, date) {
   const data = {
     attendance: attendance,
     date: date,

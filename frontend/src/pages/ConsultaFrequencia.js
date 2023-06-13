@@ -1,6 +1,5 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import FieldTurma from "../components/FieldTurma";
 import ModalEditFrequencia from "../components/ModalEditFrequencia";
 import "../styles/ConsultaFrequencia.css";
 import { useState, useEffect } from "react";
@@ -15,6 +14,9 @@ function ConsultaFrequencia() {
   const [modalShow, setModalShow] = useState(false);
   const [modalTitle, setModalTitle] = useState("");
   const [modalMessage, setModalMessage] = useState("");
+  const [showEditModal, setShowEditModal] = useState(false);
+  const [selectedStudent, setSelectedStudent] = useState(null);
+  const [selectedGroup, setSelectedGroup] = useState(null);
 
   useEffect(() => {
     const fetchGroups = async () => {
@@ -30,7 +32,21 @@ function ConsultaFrequencia() {
     fetchGroups();
   }, []);
 
-  const searchStudents = async () => {
+  const handleEditClick = (student) => {
+    setSelectedStudent(student);
+    handleShowEditModal();
+  };
+
+  const handleCloseEditModal = () => {
+    setShowEditModal(false);
+    searchStudents(false);
+  };
+
+  const handleShowEditModal = () => {
+    setShowEditModal(true);
+  };
+
+  const searchStudents = async (displayMessage) => {
     if (groups === "") {
       setModalTitle("Erro");
       setModalMessage("Por favor selecione uma turma.");
@@ -40,9 +56,16 @@ function ConsultaFrequencia() {
     try {
       const response = await getGroup(groups);
       setStudents(response.group_student);
-      setModalTitle("Pesquisa realizada");
-      setModalMessage("A pesquisa de alunos foi realizada com sucesso.");
-      setModalShow(true);
+      setSelectedGroup({
+        id: response.id,
+        name: response.name,
+        date: response.date,
+      });
+      if (displayMessage) {
+        setModalTitle("Pesquisa realizada");
+        setModalMessage("A pesquisa de alunos foi realizada com sucesso.");
+        setModalShow(true);
+      }
     } catch (error) {
       console.log(error);
       setModalTitle("Erro");
@@ -105,7 +128,14 @@ function ConsultaFrequencia() {
                       0
                     )}
                   </td>
-                  <td></td>
+                  <td>
+                    <button
+                      className="btn btn-warning"
+                      onClick={() => handleEditClick(student)}
+                    >
+                      <i className="fas fa-edit"></i>
+                    </button>
+                  </td>
                 </tr>
               ))
             ) : (
@@ -116,6 +146,13 @@ function ConsultaFrequencia() {
           </tbody>
         </table>
       </div>
+      <ModalEditFrequencia
+        selectedGroup={selectedGroup}
+        show={showEditModal}
+        student={selectedStudent}
+        handleOpen={handleShowEditModal}
+        handleClose={handleCloseEditModal}
+      />
       <ModalMessage
         show={modalShow}
         onClose={() => setModalShow(false)}

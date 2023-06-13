@@ -20,7 +20,7 @@ const ModalVisualizarTurma = ({ show, group, handleClose }) => {
   }, [show, group]);
 
   return groupDetails ? (
-    <ModalComponent show={show} title="Visualizar Turma" onClose={handleClose}>
+    <ModalComponent show={show} title="Visualizar Turma" handleClose={handleClose}>
       <Field
         id="nomeTurma"
         label="Nome da Turma"

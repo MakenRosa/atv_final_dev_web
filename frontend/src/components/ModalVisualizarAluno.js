@@ -35,7 +35,7 @@ const ModalVisualizarAluno = ({ show, student, handleClose }) => {
   }, [show, student]);
 
   return studentDetails ? (
-    <ModalComponent show={show} title="Visualizar Aluno" onClose={handleClose}>
+    <ModalComponent show={show} title="Visualizar Aluno" handleClose={handleClose}>
       <div className="form-group">
         <Field
           id="matricula"

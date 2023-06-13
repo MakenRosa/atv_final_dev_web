@@ -1,107 +1,59 @@
-.cadastroFrequencia .title {
-    margin-bottom: 80px;
-  }
-  
-  .cadastroFrequencia .content {
+.consultaFrequencia {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+}
+
+.consultaFrequencia .content {
     max-width: 800px;
     margin: 0 auto;
     background-color: #fff;
     border-radius: 10px;
     padding: 20px;
   }
-  
-  .cadastroFrequencia .line {
-    display: flex;
-    flex-direction: row;
+
+.consultaFrequencia .title {
+    margin-bottom: 30px;
+}
+
+.consultaFrequencia .field-turma {
+    text-align: center;
     width: 100%;
-    justify-content: space-around;
-  }
-  
-  .cadastroFrequencia select {
-    width: 300px;
-    font-size: 1.1rem;
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    outline: none;
-    cursor: pointer;
-    height: 100%;
-  }
-  
-  .cadastroFrequencia label {
-    width: 100px;
+}
+
+.consultaFrequencia label.field-turma {
+    width: 30%;
     font-size: 1.3rem;
-    height: 100%;
-  }
-  
-  .cadastroFrequencia .table {
-    width: 100%;
-    margin-top: 30px;
-    margin-bottom: 20px;
-  }
-  
-  .cadastroFrequencia .table th,
-  .cadastroFrequencia .table td {
-    padding: 15px;
-    text-align: center;
-  }
-  
-  .cadastroFrequencia .table th {
-    background-color: #ffffff;
-  }
-  
-  .cadastroFrequencia .table td button {
-    margin-right: 20px;
-  }
-  
-  .modal-body label {
-    font-size: 1.2rem;
-  }
-  .modal-body select {
-    width: 50%;
+}
+
+.consultaFrequencia select {
+    width: 70%;
     font-size: 1.1rem;
     padding: 5px;
     border-radius: 5px;
     border: 1px solid #ccc;
     outline: none;
     cursor: pointer;
-    height: 100%;
-    margin-bottom: 20px;
-    margin-left: 20px;
-  }
-  
-  .modal-body input {
-    width: 50%;
-    font-size: 1.1rem;
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    outline: none;
-    cursor: pointer;
-    height: 100%;
-    margin-bottom: 20px;
-    margin-left: 20px;
-  }
-  
-  .modal-body table {
+    text-align: left;
+}
+
+.consultaFrequencia .table {
     width: 100%;
     margin-top: 30px;
     margin-bottom: 20px;
-  }
-  
-  .modal-body .table th,
-  .modal-body .table td {
+}
+
+.consultaFrequencia .table th,
+.consultaFrequencia .table td {
     padding: 15px;
-    text-align: center;
-  }
-  
-  .modal-body .table th {
+    text-align: center
+}
+
+.consultaFrequencia .table th {
     background-color: #ffffff;
-  }
-  
-  .modal-footer {
-    justify-content: center;
-  }
-  
-  
-  
+}
+
+.consultaFrequencia .line button {
+    text-align: center;
+    margin: 50px auto;
+    display: block;
+}
