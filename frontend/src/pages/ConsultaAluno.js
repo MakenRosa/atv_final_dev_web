@@ -1,22 +1,20 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Field from "../components/Field";
-import ModalAluno from "../components/ModalAluno";
-import ModalExcluirAluno from "../components/ModalExcluirAluno";
 import "../styles/ConsultaAluno.css";
 import { getGroupAll } from "../endpoints/groups.js";
-import { getStudents } from "../endpoints/students.js"; // Importe a função getStudents
+import { getStudents } from "../endpoints/students.js";
 import ModalVisualizarAluno from "../components/ModalVisualizarAluno";
 import ModalEditAluno from "../components/ModalEditAluno";
 
 function ConsultaAluno() {
   const [options, setOptions] = useState([{ value: "", label: "" }]);
   const [groups, setGroups] = useState("");
-  const [students, setStudents] = useState([]); // Estado para armazenar os alunos
+  const [students, setStudents] = useState([]);
   const [selectedStudent, setSelectedStudent] = useState(null);
   const [showViewModal, setShowViewModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
-  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [name, setName] = useState("");
 
   const fetchGroups = async () => {
     try {
@@ -35,7 +33,7 @@ function ConsultaAluno() {
 
   const searchStudents = async () => {
     try {
-      const response = await getStudents("", groups);
+      const response = await getStudents(name, groups);
       setStudents(response);
     } catch (error) {
       console.log(error);
@@ -52,11 +50,6 @@ function ConsultaAluno() {
     setShowEditModal(true);
   };
 
-  const handleDeleteClick = (student) => {
-    setSelectedStudent(student);
-    setShowDeleteModal(true);
-  };
-
   const handleShowViewModal = () => {
     setShowViewModal(true);
   };
@@ -71,7 +64,7 @@ function ConsultaAluno() {
 
   const handleCloseEditModal = () => {
     setShowEditModal(false);
-    fetchGroups();
+    searchStudents();
   };
 
   return (
@@ -83,6 +76,8 @@ function ConsultaAluno() {
           id="nome"
           label="Nome"
           type="text"
+          value={name}
+          onChange={(event) => setName(event.target.value)}
           placeholder="Digite o nome do aluno"
         />
         <div>
@@ -106,7 +101,7 @@ function ConsultaAluno() {
         <button
           type="submit"
           className="btn btn-primary"
-          onClick={searchStudents} // Adicione o evento onClick para chamar a função de pesquisa
+          onClick={searchStudents}
         >
           <i className="fas fa-search"></i> Pesquisar
         </button>
@@ -143,12 +138,6 @@ function ConsultaAluno() {
                     >
                       <i className="fas fa-edit"></i>
                     </button>
-                    <button
-                      className="btn btn-danger"
-                      onClick={() => handleDeleteClick(student)}
-                    >
-                      <i className="fas fa-trash"></i>
-                    </button>
                   </td>
                 </tr>
               ))
@@ -173,7 +162,6 @@ function ConsultaAluno() {
         handleOpen={handleShowEditModal}
         handleClose={handleCloseEditModal}
       />
-      <ModalExcluirAluno />
     </div>
   );
 }

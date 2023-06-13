@@ -3,15 +3,30 @@ import Field from "./Field";
 import ModalComponent from "./ModalComponent";
 import { ModalFooter } from "react-bootstrap";
 import { getStudent } from "../endpoints/students.js";
+import { getGroupAll } from "../endpoints/groups.js";
 
 const ModalVisualizarAluno = ({ show, student, handleClose }) => {
   const [studentDetails, setStudentDetails] = useState(null);
+  const [options, setOptions] = useState([{ value: "", label: "" }]);
+  const [groups, setGroups] = useState(0);
 
   useEffect(() => {
+    const fetchGroups = async () => {
+      try {
+        const groupData = await getGroupAll();
+        setOptions(
+          groupData.map((group) => ({ value: group.id, label: group.name }))
+        );
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchGroups();
     if (show && student) {
       const fetchStudentDetails = async () => {
         const details = await getStudent(student.id);
         setStudentDetails(details);
+        setGroups(details.groups[0])
       };
       fetchStudentDetails();
     } else {
@@ -101,6 +116,31 @@ const ModalVisualizarAluno = ({ show, student, handleClose }) => {
           disabled={true}
           value={studentDetails.state}
         />
+        <Field
+          id="estado"
+          label="UF"
+          disabled={true}
+          value={studentDetails.state}
+        />
+        <div>
+          <label className="FieldTurma" htmlFor="turma">
+            Turma
+          </label>
+          <select
+            id="turma"
+            className="form-controlfield-turma"
+            value={groups}
+            onChange={(event) => setGroups(event.target.value)}
+            disabled={true}
+          >
+            <option value="">Selecione uma turma</option>
+            {options.map((option, index) => (
+              <option key={index} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
       <ModalFooter>
         <button

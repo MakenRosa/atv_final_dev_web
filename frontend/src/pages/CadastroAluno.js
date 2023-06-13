@@ -90,8 +90,9 @@ function CadastroAluno() {
       setModalTitle("Erro");
       setModalMessage("Todos os campos devem ser preenchidos.");
       setModalShow(true);
-      return;
+      return false;
     }
+    return true;
   };
 
   const resetForm = () => {

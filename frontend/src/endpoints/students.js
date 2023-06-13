@@ -40,8 +40,6 @@ async function createStudent(
   }
 }
 
-export { createStudent, getStudents, updateStudent, deleteStudent, getStudent };
-
 async function getStudent(id) {
   try {
     const response = await fetch(`${API_URL}/students/${id}/`);
@@ -52,10 +50,10 @@ async function getStudent(id) {
 }
 
 // Get Alunos
-async function getStudents(full_name = "", groups = "") {
+async function getStudents(name = "", groups = "") {
   try {
     const params = new URLSearchParams({
-      full_name,
+      name,
       ...(groups && { groups }),
     });
 
@@ -108,17 +106,4 @@ async function updateStudent(
   }
 }
 
-// Delete Aluno
-async function deleteStudent(id) {
-  try {
-    const response = await fetch(`${API_URL}/students/${id}/`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    return response;
-  } catch (error) {
-    console.error("Error:", error);
-  }
-}
+export { createStudent, getStudents, updateStudent, getStudent };

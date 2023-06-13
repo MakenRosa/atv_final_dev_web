@@ -1,18 +1,19 @@
-// Create Frequencia para criar precisa pegar o id do getGroup
-async function setAttendance({ attendance, date, studentGroup }) {
+import { API_URL } from "./settings.js";
+
+async function setAttendance(attendance, studentGroup) {
   const data = {
     attendance: attendance,
-    date: date,
-    studentGroup: studentGroup,
+    student_group: studentGroup,
   };
   try {
-    const response = await fetch(`${ip}/api/v1/attendance/`, {
+    const response = await fetch(`${API_URL}/attendance/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
     });
+    return response;
   } catch (error) {
     console.error("Error:", error);
   }
@@ -25,7 +26,7 @@ async function updateAttendance({ id, attendance, date }) {
     date: date,
   };
   try {
-    const response = await fetch(`${ip}/api/v1/attendance/${id}/`, {
+    const response = await fetch(`${API_URL}/attendance/${id}/`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -40,7 +41,7 @@ async function updateAttendance({ id, attendance, date }) {
 // Delete Frequencia
 async function deleteAttendance(id) {
   try {
-    const response = await fetch(`${ip}/api/v1/attendance/${id}/`, {
+    const response = await fetch(`${API_URL}/attendance/${id}/`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -50,3 +51,5 @@ async function deleteAttendance(id) {
     console.log(error);
   }
 }
+
+export { setAttendance, updateAttendance, deleteAttendance };
