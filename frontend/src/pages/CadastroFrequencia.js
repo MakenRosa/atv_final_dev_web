@@ -40,7 +40,6 @@ function CadastroFrequencia() {
     }
 
     const studentsRequest = [];
-    console.log(students);
     students.map((student) => {
       if (student.attendance === false) {
         studentsRequest.push({
@@ -54,6 +53,12 @@ function CadastroFrequencia() {
         });
       }
     });
+    if (studentsRequest.length === 0) {
+      setModalTitle("Erro");
+      setModalMessage("Por favor selecione uma turma.");
+      setModalShow(true);
+      return;
+    }
     try {
       await Promise.all(
         studentsRequest.map((student) =>
@@ -93,6 +98,7 @@ function CadastroFrequencia() {
       setModalShow(true);
     }
   };
+
   return (
     <div className="cadastroFrequencia">
       <Navbar />

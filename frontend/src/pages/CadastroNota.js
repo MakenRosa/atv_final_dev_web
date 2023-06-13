@@ -1,37 +1,193 @@
-import React from 'react';
-import Navbar from '../components/Navbar';
-import Field from '../components/Field';
-import FieldTurma from '../components/FieldTurma';
-import '../styles/CadastroNota.css'
+import React from "react";
+import Navbar from "../components/Navbar";
+import Field from "../components/Field";
+import "../styles/CadastroNota.css";
+import { useState, useEffect } from "react";
+import { getGroupAll } from "../endpoints/groups.js";
+import { getGroup } from "../endpoints/groups.js";
+import ModalMessage from "../components/ModalMessage";
+import { setScore } from "../endpoints/score.js";
 
 function CadastroNota() {
-    return (
-        <div className="cadastroNota">
-            <Navbar />
-            <div className="content">
-                <h1 className="title">Cadastro de Nota</h1>
-                <FieldTurma className="field-turma"/>
-                <Field id="dataNota" label="Data da Nota" type="date" placeholder="Digite a data da nota" />
-                <table className="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Matrícula</th>
-                            <th scope="col">Aluno</th>
-                            <th scope="col">Nota</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">123456</th>
-                            <td>João da Silva</td>
-                            <td><input type="number" /></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <button type="submit" className="btn btn-primary">Salvar</button>
-            </div>
+  const [options, setOptions] = useState([{ value: "", label: "" }]);
+  const [groups, setGroups] = useState("");
+  const [students, setStudents] = useState([]);
+  const [modalShow, setModalShow] = useState(false);
+  const [modalTitle, setModalTitle] = useState("");
+  const [modalMessage, setModalMessage] = useState("");
+  const [date, setDate] = useState("");
+
+  useEffect(() => {
+    const fetchGroups = async () => {
+      try {
+        const groupData = await getGroupAll();
+        setOptions(
+          groupData.map((group) => ({ value: group.id, label: group.name }))
+        );
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchGroups();
+  }, []);
+
+  const handleSubmit = async (event) => {
+    if (!date) {
+      setModalTitle("Erro");
+      setModalMessage("Por favor, preencha a data.");
+      setModalShow(true);
+      return;
+    }
+
+    const studentsRequest = [];
+    students.map((student) => {
+      if (!student.score) {
+        setModalTitle("Erro");
+        setModalMessage("Por favor, preencha todas as notas.");
+        setModalShow(true);
+        return;
+      } else {
+        studentsRequest.push({
+          student_group: student.id,
+          score: student.score,
+        });
+      }
+    });
+    if (studentsRequest.length === 0) {
+      setModalTitle("Erro");
+      setModalMessage("Por favor selecione uma turma.");
+      setModalShow(true);
+      return;
+    }
+    try {
+      await Promise.all(
+        studentsRequest.map((student) =>
+          setScore(student.score, date, student.student_group)
+        )
+      );
+      setModalTitle("Frequência Salva");
+      setModalMessage("A frequência dos alunos foi salva com sucesso.");
+      setModalShow(true);
+      setStudents([]);
+      setDate("");
+      setGroups("");
+    } catch (error) {
+      console.log(error);
+      setModalTitle("Erro");
+      setModalMessage("Ocorreu um erro ao salvar a frequência dos alunos.");
+      setModalShow(true);
+    }
+  };
+
+  const searchStudents = async () => {
+    if (groups === "") {
+      setModalTitle("Erro");
+      setModalMessage("Por favor selecione uma turma.");
+      setModalShow(true);
+      return;
+    }
+    try {
+      const response = await getGroup(groups);
+      setStudents(response.group_student);
+      setModalTitle("Pesquisa realizada");
+      setModalMessage("A pesquisa de alunos foi realizada com sucesso.");
+      setModalShow(true);
+    } catch (error) {
+      console.log(error);
+      setModalTitle("Erro");
+      setModalMessage("Ocorreu um erro ao realizar a pesquisa de alunos.");
+      setModalShow(true);
+    }
+  };
+
+  return (
+    <div className="cadastroNota">
+      <Navbar />
+      <div className="content">
+        <h1 className="title">Cadastro de Nota</h1>
+        <div>
+          <label className="FieldTurma" htmlFor="turma">
+            Turma
+          </label>
+          <select
+            id="turma"
+            className="form-controlfield-turma"
+            value={groups}
+            onChange={(event) => setGroups(event.target.value)}
+          >
+            <option value="">Selecione uma turma</option>
+            {options.map((option, index) => (
+              <option key={index} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
         </div>
-    );
+        <Field
+          id="dataTurma"
+          label="Data da Turma"
+          type="date"
+          placeholder="Digite a data da turma"
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
+        />
+        <button
+          type="submit"
+          className="btn btn-primary"
+          onClick={searchStudents}
+        >
+          <i className="fas fa-search"></i> Pesquisar
+        </button>
+        <table className="table">
+          <thead>
+            <tr>
+              <th scope="col">Matrícula</th>
+              <th scope="col">Aluno</th>
+              <th scope="col">Nota</th>
+            </tr>
+          </thead>
+          <tbody>
+            {students.length > 0 ? (
+              students.map((student, index) => (
+                <tr key={student.id}>
+                  <th scope="row">{student.student.id}</th>
+                  <td>{student.student.full_name}</td>
+                  <td>
+                    <input
+                      type="text"
+                      id={`presenca${student.id}`}
+                      onChange={(e) => {
+                        const newStudents = [...students];
+                        newStudents[index].score = e.target.value;
+                        setStudents(newStudents);
+                      }}
+                    />
+                  </td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="4">Nenhum aluno encontrado</td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+        <button
+          type="submit"
+          className="btn btn-primary"
+          onClick={handleSubmit}
+        >
+          Salvar
+        </button>
+      </div>
+      <ModalMessage
+        show={modalShow}
+        onClose={() => setModalShow(false)}
+        title={modalTitle}
+        message={modalMessage}
+      />
+    </div>
+  );
 }
 
 export default CadastroNota;
