@@ -30,7 +30,7 @@
 <p>Para baixar o projeto, clone este repositório no seu terminal com o seguinte comando:</p>
 
 <pre>
-git clone https://github.com/seuusuario/MeuProjetoWeb.git
+git clone https://github.com/MakenRosa/atv_final_dev_web.git
 </pre>
 
 <p>Em seguida, navegue até o diretório do projeto:</p>
