@@ -11,7 +11,10 @@ from django.utils.translation import gettext as _
 ###
 class Attendance(models.Model):
     attendance = models.IntegerField()
-
+    
+    date = models.DateField(
+        verbose_name=_('Data da Falta'),
+    )
     student_group = models.ForeignKey(
         'student_group.StudentGroup',
         on_delete=models.CASCADE,
