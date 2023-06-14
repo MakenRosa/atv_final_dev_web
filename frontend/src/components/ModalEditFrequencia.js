@@ -153,7 +153,7 @@ const ModalEditFrequencia = ({
               className="btn btn-danger"
               onClick={handleClose}
             >
-              Cancelar
+              Fechar
             </button>
           </ModalFooter>
         </form>

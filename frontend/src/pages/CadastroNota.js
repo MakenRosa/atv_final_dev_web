@@ -73,8 +73,8 @@ function CadastroNota() {
           setScore(student.score, date, student.student_group)
         )
       );
-      setModalTitle("Frequência Salva");
-      setModalMessage("A frequência dos alunos foi salva com sucesso.");
+      setModalTitle("Nota Salva");
+      setModalMessage("A nota dos alunos foi salva com sucesso.");
       setModalShow(true);
       setStudents([]);
       setDate("");
@@ -82,7 +82,7 @@ function CadastroNota() {
     } catch (error) {
       console.log(error);
       setModalTitle("Erro");
-      setModalMessage("Ocorreu um erro ao salvar a frequência dos alunos.");
+      setModalMessage("Ocorreu um erro ao salvar a nota dos alunos.");
       setModalShow(true);
     }
   };
