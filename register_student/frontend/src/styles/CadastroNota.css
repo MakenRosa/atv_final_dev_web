@@ -1,0 +1,73 @@
+.cadastroNota {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+}
+
+.cadastroNota .content {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.cadastroNota .title {
+    margin-bottom: 150px;
+}
+
+.cadastroNota .form-group,
+.cadastroNota .field-turma {
+    text-align: center;
+    width: 100%;
+}
+
+.cadastroNota label,
+.cadastroNota label.field-turma {
+    width: 30%;
+    font-size: 1.3rem;
+}
+
+.cadastroNota input,
+.cadastroNota select.field-turma {
+    width: 70%;
+    font-size: 1.1rem;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+.cadastroNota input[type="date"] {
+    margin-bottom: 70px;
+}
+
+.cadastroNota input[type="number"] {
+    cursor: text;
+    width: 20%;
+}
+
+.cadastroNota input {
+    margin-bottom: 0px;
+}
+
+.cadastroNota .table {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.cadastroNota .table th,
+.cadastroNota .table td {
+    text-align: center
+}
+
+.cadastroNota .table th {
+    background-color: #ffffff;
+}
+
+.cadastroNota button {
+    text-align: center;
+    margin: 50px auto;
+    display: block;
+}

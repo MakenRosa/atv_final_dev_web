@@ -8,7 +8,7 @@ function ConsultaFrequencia() {
         <div className="consultaFrequencia">
             <Navbar />
             <div className="content">
-                <h1>Consulta de Frequência</h1>
+                <h1 className="title">Consulta de Frequência</h1>
                 <FieldTurma />
                 <button type="submit" className="btn btn-primary"><i className="fas fa-search"></i> Pesquisar</button>
                 <table className="table table-striped">

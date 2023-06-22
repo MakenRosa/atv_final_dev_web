@@ -10,7 +10,7 @@ function ConsultaAluno() {
         <div className="consultaAluno">
             <Navbar />
             <div className="content">
-                <h1>Consulta de Alunos</h1>
+                <h1 className="title">Consulta de Alunos</h1>
                 <Field id="nome" label="Nome" type="text" placeholder="Digite o nome do aluno" />
                 <FieldTurma/>
                 <Field id="matricula" label="Matrícula" type="text" placeholder="Digite a matrícula do aluno" />

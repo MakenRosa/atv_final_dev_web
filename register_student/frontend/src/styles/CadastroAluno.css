@@ -1,0 +1,51 @@
+.cadastroAluno {
+  position: relative;
+  height: 100vh;
+}
+
+.cadastroAluno > .content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  width: 100%;
+}
+
+.cadastroAluno > .content .form-group {
+  width: 90%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+}
+
+.cadastroAluno input,
+.cadastroAluno select.field-turma {
+    width: 70%;
+    font-size: 1.1rem;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+.cadastroAluno input[type="number"],
+.cadastroAluno input[type="text"],
+.cadastroAluno input[type="tel"] {
+    cursor: text;
+}
+
+.cadastroAluno > .content form > button {
+  display: block;
+  margin: 30px auto;
+}
+
+.cadastroAluno > .content .form-group div {
+  display: flex;
+  flex-direction: row;
+}

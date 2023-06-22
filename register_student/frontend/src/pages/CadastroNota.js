@@ -2,16 +2,17 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import Field from '../components/Field';
 import FieldTurma from '../components/FieldTurma';
+import '../styles/CadastroNota.css'
 
 function CadastroNota() {
     return (
         <div className="cadastroNota">
             <Navbar />
             <div className="content">
-                <h1>Cadastro de Nota</h1>
-                <FieldTurma/>
+                <h1 className="title">Cadastro de Nota</h1>
+                <FieldTurma className="field-turma"/>
                 <Field id="dataNota" label="Data da Nota" type="date" placeholder="Digite a data da nota" />
-                <table className="table table-striped">
+                <table className="table">
                     <thead>
                         <tr>
                             <th scope="col">Matrícula</th>
